@@ -16,6 +16,6 @@
 - [x] 8 If invalid login, display an error message on the index page.
 - [x] 9 If login valid, store the user in session and redirect to the success page.
 - [x] 10 Add logout functionality to success page which clears the session.
-- [ ] 11 After logging out, verify you cannot reach the success page.
+- [x] 11 After logging out, verify you cannot reach the success page.
 - [ ] NINJA Bonus: Add addtional validation on passwords to have at least 1 number and 1 uppercase letter.
 - [ ] SENSEI Bonus: Add additional input types on the form. Get creative with validations.

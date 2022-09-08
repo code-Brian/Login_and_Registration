@@ -8,7 +8,6 @@ bcrypt = Bcrypt(app)
 @app.route('/login')
 def r_login():
     print('rendering login page...')
-    current_user = User.get_user_by_id(session['user_id'])
     return render_template('login.html')
 
 @app.route('/success')
@@ -18,8 +17,12 @@ def r_success():
         flash(u'Sorry pal, you are not logged in!', 'login')
         return redirect('/login')
 
+    data = {
+        'id' : session['user_id']
+    }
+
     print('rendering success page...')
-    return render_template('success.html')
+    return render_template('success.html', current_user=User.get_user_by_id(data))
 
 @app.route('/user/register', methods=['POST'])
 def f_register_user():

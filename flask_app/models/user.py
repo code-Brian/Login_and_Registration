@@ -79,7 +79,20 @@ class User:
     def save(cls, data):
         query='''
         INSERT INTO users (first_name, last_name, email, password)
-        VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s)
+        VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s);
         '''
 
         return connectToMySQL('login_registration').query_db(query, data)
+    
+    @classmethod
+    def get_user_by_id(cls, data):
+        query='''
+        SELECT * FROM users WHERE users.id = %(id)s;
+        '''
+        result = connectToMySQL('login_registration').query_db(query, data)
+        if not result:
+            return False
+        
+        user = cls(result[0])
+
+        return user
