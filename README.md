@@ -5,7 +5,7 @@
 ## Tasks:
 
 - [x] 1 Create a new Flask project.
-- [ ] 2 Create a new MySQL database with a table and the appropriate fields.
+- [x] 2 Create a new MySQL database with a table and the appropriate fields.
 - [ ] 3 The root route should display a template with the login and registrations forms.
 - [ ] 4 Validate the registration input.
 - [ ] 5 If registration is invalid, error messages should be displayed on the index page.
