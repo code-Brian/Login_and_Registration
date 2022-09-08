@@ -7,7 +7,7 @@
 - [x] 1 Create a new Flask project.
 - [x] 2 Create a new MySQL database with a table and the appropriate fields.
 - [x] 3 The root route should display a template with the login and registrations forms.
-- [ ] 4 Validate the registration input.
+- [x] 4 Validate the registration input.
 - [ ] 5 If registration is invalid, error messages should be displayed on the index page.
 - [ ] 6 If registration is valid, hash the password and save the user in the database.
     * [ ] 6.1 Store the user in session and then redirect to the success page.
