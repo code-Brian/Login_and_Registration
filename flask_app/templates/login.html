@@ -58,12 +58,12 @@
             <div class="card col-4">
                 <div class="card-header">
                     <h2>Login</h2>
-                    {% with messages = get_flashed_messages(category_filter=["login"]) %}
-                    {% if messages %}
-                    <div class="container-sm col-5 mt-3 mb-4">
+                    {% with errors = get_flashed_messages(category_filter=["login"]) %}
+                    {% if errors %}
+                    <div class="container col-10 mt-3 mb-4">
                         <ul class="flashes list-group">
-                            {% for category, message in messages %}
-                            <li class="{{ category }} list-group-item list-group-item-danger"> {{ message }} </li>
+                            {% for msg in errors %}
+                            <li class="list-group-item list-group-item-danger"> {{ msg }} </li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -72,12 +72,12 @@
                 </div>
                 
                 <div class="card-body">
-                    <form action="#" method="post">
+                    <form action="/user/login" method="post">
                         <label class="form-label" for="first_name">Email</label>
-                        <input class="form-control" type="text" name="first_name" value="{ session.email }}">
+                        <input class="form-control" type="text" name="email" value="{{ session.email }}">
                         
-                        <label class="form-label" for="last_name">Password</label>
-                        <input class="form-control" type="text" name="last_name" value="">
+                        <label class="form-label" for="password">Password</label>
+                        <input class="form-control" type="text" name="password" value="">
                         
                         <input class="btn btn-primary mt-3" type="submit" value="Login">
                     </form>

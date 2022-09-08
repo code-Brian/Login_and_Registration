@@ -18,7 +18,7 @@ class User:
     # STATIC METHODS
 
     @staticmethod
-    def validate_user_registration(user):
+    def validate_registration(user):
         is_valid = True
 
         if len(user['first_name']) < 3:
@@ -33,7 +33,7 @@ class User:
             flash(u'Email address is not valid', 'register')
             is_valid = False
 
-        if User.get_user_emails(user):
+        if User.get_user_email(user):
                 flash(u'Email address is already in use', 'register')
                 is_valid = False
 
@@ -50,14 +50,27 @@ class User:
     # CLASS METHODS
 
     @classmethod
-    def get_user_emails(cls, data):
+    def get_user_email(cls, data):
         query = '''
-        SELECT * FROM users WHERE email=%(email)s;
+        SELECT * FROM users WHERE email = %(email)s;
         '''
         result = connectToMySQL('login_registration').query_db(query,data)
         if not result:
             return False
         
+        user = cls(result[0])
+
+        return user
+
+    def check_password(cls, data):
+        query = '''
+        SELECT %(email)s FROM users WHERE password = %(password)s;
+        '''
+
+        result = connectToMySQL('login_registration').query_db(query, data)
+        if not result:
+            return False
+
         user = cls(result[0])
 
         return user
