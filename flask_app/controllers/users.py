@@ -41,10 +41,16 @@ def f_register_user():
     }
 
 
-    # user_id = User.save(data)
+    user_id = User.save(data)
 
-    # session['user_id'] = user_id
+    session['user_id'] = user_id
 
     return redirect('/success')
+
+@app.route('/logout')
+def b_logout():
+    print('clearing the session and logging out...')
+    session.clear()
+    return redirect('/login')
 
 

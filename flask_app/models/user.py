@@ -61,3 +61,12 @@ class User:
         user = cls(result[0])
 
         return user
+
+    @classmethod
+    def save(cls, data):
+        query='''
+        INSERT INTO users (first_name, last_name, email, password)
+        VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s)
+        '''
+
+        return connectToMySQL('login_registration').query_db(query, data)
