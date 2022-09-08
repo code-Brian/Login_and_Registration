@@ -1,47 +1,20 @@
-# m_flask_template
-<p>This is a modularized flask template, ready to go.</p>
-<p>Template credit and thanks to: rteet702</p>
+# LOGIN AND REGISTRATION
 
+***
 
-## BASHRC
-<p>This template is used with bashrc code to clone the template into a new project directory. 
-  To get the full benefit of this template, add the following code snippets to your bashrc file:</p>
-  
-```bash
-function full_flask(){
-    git clone https://github.com/code-Brian/m_flask_template.git && echo "------------------- GIT REPO CLONED -------------------"
-    mv m_flask_template $1
-    cd $1
-    echo "------------------- CHANGING INTO PROJECT DIRECTORY -------------------"
-    rm -rf .git
-    echo "------------------- GIT FILE DELETED -------------------"
-    pipenv install flask pymysql
-    echo "-------------------------FLASK / PYMYSQL  INSTALLED-------------------------"
-    git init
-    git branch -M main
-    git add .
-    git commit -m '1: init commit'
-    git checkout -b dev
-    echo "-------------------------GIT REPO CREATED AND INIT -------------------------"
-    echo "-------------------------COMMIT DONE, CHECKED OUT  -------------------------"
-    echo "-------------------------DEVELOPMENT BRANCH 'dev'  -------------------------"
-    code .
-    echo "-------------------------OPENING PROJECT IN VSCODE -------------------------"
-} 
-export -f full_flask
-```
-In order to generate the template using this method, after updating your .bashrc file, run the command:
-```bash
-full_flask some-project-name
-```
+## Tasks:
 
-## Git
-
-This project also works perfectly fine just by cloning the git repository. 
-A few notes:
-- This repository is intended to be a template, so everything is a placeholder. 
-- In order to create your own repository for the project you are working on, you will likely need to delete .git inside the cloned repository.
-
-
-## Lastly
-<p> I hope this template is helpful. Please ping myself or Robert (https://github.com/rteet702) if there are any questions!</p>
+- [x] 1 Create a new Flask project.
+- [ ] 2 Create a new MySQL database with a table and the appropriate fields.
+- [ ] 3 The root route should display a template with the login and registrations forms.
+- [ ] 4 Validate the registration input.
+- [ ] 5 If registration is invalid, error messages should be displayed on the index page.
+- [ ] 6 If registration is valid, hash the password and save the user in the database.
+    * [ ] 6.1 Store the user in session and then redirect to the success page.
+- [ ] 7 Valdiate login input.
+- [ ] 8 If invalid login, display an error message on the index page.
+- [ ] 9 If login valid, store the user in session and redirect to the success page.
+- [ ] 10 Add logout functionality to success page which clears the session.
+- [ ] 11 After logging out, verify you cannot reach the success page.
+- [ ] NINJA Bonus: Add addtional validation on passwords to have at least 1 number and 1 uppercase letter.
+- [ ] SENSEI Bonus: Add additional input types on the form. Get creative with validations.
