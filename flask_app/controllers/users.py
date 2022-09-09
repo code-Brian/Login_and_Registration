@@ -17,12 +17,8 @@ def r_success():
         flash(u'Sorry pal, you are not logged in!', 'login')
         return redirect('/login')
 
-    data = {
-        'id' : session['user_id']
-    }
-
     print('rendering success page...')
-    return render_template('success.html', current_user=User.get_user_by_id(data))
+    return render_template('success.html')
 
 @app.route('/user/register', methods=['POST'])
 def f_register_user():
@@ -71,6 +67,8 @@ def f_user_login():
         return redirect('/login')
 
     session['user_id'] = user_match.id
+    session['first_name'] = user_match.first_name.capitalize()
+    session['last_name'] = user_match.last_name.capitalize()
 
     return redirect('/success')
 
